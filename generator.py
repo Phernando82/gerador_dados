@@ -53,9 +53,18 @@ while True:
                 print(str(x) + ": " + str(y))
         print(f'{option} foi digitado')
         grava = input('Quer gravar em arquivo txt? Digite S para SIM ou N para não:').upper()
-        if grava == 'S':
-            with open('dados_saida.txt', 'w') as arquivo:  # o 'w' vai escrever o arquivo que será criado
-                arquivo.writelines('Dados gerados:\n')
+        if grava == 'S' and 7 in option :
+            with open('dados_saida.txt', 'w') as arquivo:
+                arquivo.writelines('Dados gerados:')
+                arquivo.writelines('\n')
+                arquivo.writelines('\n')
+                for x, y in dados.items():
+                    arquivo.writelines(str(x) + ": " + str(y)+'\n')
+            print('Arquivo txt gravado com sucesso!')
+
+        if grava == 'S' and 7 not in option :
+            with open('dados_saida.txt', 'a') as arquivo:
+                arquivo.writelines('Dados gerados:')
                 arquivo.writelines('\n')
                 arquivo.writelines('\n')
                 for x, y in dados.items():
