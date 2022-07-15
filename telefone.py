@@ -8,4 +8,4 @@ def gera_telefone():
     return tel
 
 
-print(gera_telefone())
+

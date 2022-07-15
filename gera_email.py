@@ -6,7 +6,6 @@ from gerador_dados.nome import gera_nome
 
 # função gera email
 
-
 def gera_email():
     nome_email = gera_nome()
     aleatorio = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
@@ -14,4 +13,5 @@ def gera_email():
     return email
 
 
-print(gera_email())
+
+
