@@ -64,6 +64,7 @@ while True:
 
         if grava == 'S' and 7 not in option :
             with open('dados_gerados.txt', 'a') as arquivo:
+                arquivo.writelines('\n')
                 arquivo.writelines('Dados gerados:')
                 arquivo.writelines('\n')
                 arquivo.writelines('\n')
