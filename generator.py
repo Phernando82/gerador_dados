@@ -32,7 +32,7 @@ while True:
             dados['Telefone'] = gera_telefone()
             print(dados['Telefone'])
         if 4 in option:
-            dados['Cidade'] = endereco.city
+            dados['Cidade'] = endereco.municipality
             print(dados['Cidade'])
         if 5 in option:
             dados['Estado'] = endereco.state
@@ -46,7 +46,7 @@ while True:
             dados['Telefone'] = gera_telefone()
             dados['CPF'] = cpf_generate()
             dados['Endereço'] = endereco.address
-            dados['Cidade'] = endereco.city
+            dados['Cidade'] = endereco.municipality
             dados['Estado'] = endereco.state
             dados['CEP'] = endereco.zipcode
             for x, y in dados.items():

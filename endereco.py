@@ -4,8 +4,9 @@ from shapely.geometry import Polygon, Point
 
 
 class endereco_completo:
-    def __init__(self, address, city, state, country, code, zipcode):
+    def __init__(self, address, municipality, city, state, country, code, zipcode):
         self.address = address
+        self.municipality = municipality
         self.city = city
         self.state = state
         self.country = country
@@ -33,27 +34,20 @@ def gera_endereco():
             Longitude = str(lon)
             geolocator = Nominatim(user_agent="geoapiExercises")
             location = geolocator.reverse(Latitude + "," + Longitude)
-            # print(location)
             address = location.raw['address']
             city = address.get('city', '')
+            municipality = address.get('municipality', '')
+            municipality = municipality[29:]
             state = address.get('state', '')
             country = address.get('country', '')
             code = address.get('country_code')
             zipcode = address.get('postcode')
-            endereco = endereco_completo(address, city, state, country, code, zipcode)
+            endereco = endereco_completo(address,municipality, city, state, country, code, zipcode)
             return endereco
 
 
 saida = gera_endereco()
-# print(saida.address)
-# print(saida.city)
-# print(saida.state)
-# print(saida.country)
-# print(saida.code)
-# print(saida.zipcode)
-# coordenadas dos extremos:
 
-# NORTE latitude: 5.2616 longitude: -602114
-# SUL latitude: -33.6328 longitude: -53.3594
-# OESTE latitude: -7.5015 longitude: -73.9800
-# LESTE latitude: -7.1507 longitude: -34.7932
+
+print(saida.municipality, saida.city, saida.state)
+

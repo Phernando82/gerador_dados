@@ -11,4 +11,3 @@ def random_lat_lon(n=1, lat_min=-90., lat_max=90., lon_min=-180., lon_max=180.):
     return coord
 
 
-print(random_lat_lon())

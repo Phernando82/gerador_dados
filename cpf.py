@@ -1,6 +1,7 @@
-# função gera CPF
 import random
 
+
+# função gera CPF
 
 def cpf_generate():
     #  Gera os primeiros nove dígitos (e certifica-se de que não são todos iguais)
@@ -43,6 +44,3 @@ def cpf_validate(numbers):
     return True
 
 
-print(cpf_generate())
-
-print(cpf_validate(cpf_generate()))
