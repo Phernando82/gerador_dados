@@ -17,7 +17,7 @@ while True:
             if not 0 <= i <= 7:
                 raise ValueError("Opção não existe")
     except ValueError as e:
-        print("Valor inválido! Somente números de 0 a 7")
+        print("Valor inválido! Somente números de 0 a 7", e)
 
     else:
         nome_email = gera_nome_email()
