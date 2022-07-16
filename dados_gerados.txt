@@ -1,0 +1,9 @@
+Tipo               Dado                                  Log                 
+
+Nome               Bianca                               2022-07-16 22:40    
+Email              bianca_urimrjv7@gmail.com            2022-07-16 22:40    
+Telefone           +55(11)925172764                     2022-07-16 22:40    
+CPF                84023166707                          2022-07-16 22:40    
+Cidade             Água Boa                             2022-07-16 22:40    
+Estado             Mato Grosso                          2022-07-16 22:40    
+CEP                78640-000                            2022-07-16 22:40    

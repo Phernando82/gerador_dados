@@ -1,8 +1,10 @@
+from datetime import datetime
+
 from gerador_dados.cabecalho import cria_cabecalho
 from gerador_dados.cpf import cpf_generate
 from gerador_dados.endereco import gera_endereco
 from gerador_dados.nome import gera_nome_email
-from gerador_dados.telefone import gera_telefone
+from gerador_dados.telefone import gera_telefone, gera_telefone_estado
 
 while True:
     try:
@@ -43,33 +45,44 @@ while True:
         if 7 in option:
             dados['Nome'] = nome_email.nome
             dados['Email'] = nome_email.email
-            dados['Telefone'] = gera_telefone()
-            dados['CPF'] = cpf_generate()
-            dados['Endereço'] = endereco.address
+            dados['CPF'] = str(cpf_generate())
             dados['Cidade'] = endereco.municipality
             dados['Estado'] = endereco.state
-            dados['CEP'] = endereco.zipcode
+            dados['Telefone'] = str(gera_telefone_estado(endereco.state))
+            dados['CEP'] = str(endereco.zipcode)
             for x, y in dados.items():
                 print(str(x) + ": " + str(y))
         print(f'{option} foi digitado')
+
         grava = input('Quer gravar em arquivo txt? Digite S para SIM ou N para não:').upper()
-        if grava == 'S' and 7 in option :
+
+        if grava == 'S' and 7 in option:
             with open('dados_gerados.txt', 'w') as arquivo:
-                arquivo.writelines('Dados gerados:')
+                arquivo.writelines("{:<18} {:<36}  {:<20}".format('Tipo', 'Dado', 'Log'))
                 arquivo.writelines('\n')
                 arquivo.writelines('\n')
                 for x, y in dados.items():
-                    arquivo.writelines(str(x) + ": " + str(y)+'\n')
+                    tipo = x
+                    dado = y
+                    log = str(datetime.today().strftime('%Y-%m-%d %H:%M'))
+                    arquivo.writelines(
+                        "{:<18} {:<36} {:<20}".format(tipo, dado, log) + '\n'
+                    )
             print('Arquivo txt gravado com sucesso!')
 
-        if grava == 'S' and 7 not in option :
+        if grava == 'S' and 7 not in option:
             with open('dados_gerados.txt', 'a') as arquivo:
-                arquivo.writelines('\n')
-                arquivo.writelines('Dados gerados:')
+                arquivo.writelines("{:<18} {:<36}  {:<20}".format('Tipo', 'Dado', 'Log'))
                 arquivo.writelines('\n')
                 arquivo.writelines('\n')
                 for x, y in dados.items():
-                    arquivo.writelines(str(x) + ": " + str(y)+'\n')
+                    tipo = x
+                    dado = y
+                    log = str(datetime.today().strftime('%Y-%m-%d %H:%M'))
+                    arquivo.writelines(
+                        "{:<18} {:<36} {:<20}".format(str(tipo), str(dado), str(log)) + '\n'
+                    )
             print('Arquivo txt gravado com sucesso!')
+
         else:
             print('Não será gravado arquivo txt')

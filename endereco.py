@@ -37,7 +37,7 @@ def gera_endereco():
             address = location.raw['address']
             city = address.get('city', '')
             municipality = address.get('municipality', '')
-            municipality = municipality[29:]
+            municipality = municipality[30:]
             state = address.get('state', '')
             country = address.get('country', '')
             code = address.get('country_code')
@@ -48,6 +48,6 @@ def gera_endereco():
 
 saida = gera_endereco()
 
-
+print(saida.address)
 print(saida.municipality, saida.city, saida.state)
 
