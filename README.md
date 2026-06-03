@@ -44,7 +44,7 @@ Python 3.x · pandas · geopy (Nominatim) · shapely · NumPy · random · datet
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USER/brazilian-test-data-generator
+git clone https://github.com/Phernando82/gerador_dados.git
 cd brazilian-test-data-generator
 pip install -r requirements.txt
 ```
